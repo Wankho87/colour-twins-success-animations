@@ -24,14 +24,15 @@
     @keyframes ct-cloud-right { from { transform: translate(34px,-18px) scale(.8); opacity: 0 } to { transform: translate(0,0) scale(1); opacity: 1 } }
     @keyframes ct-title { 0% { transform: scale(.72); opacity: 0 } 68% { transform: scale(1.07); opacity: 1 } 100% { transform: scale(1) } }
     @keyframes ct-rider { 0% { transform: translate(-90px,12px) rotate(-5deg); opacity: 0 } 70% { opacity: 1 } 100% { transform: translate(0,0) rotate(0) } }
-    #ct-success-variants .v-confetti.play .confetti span { top: 43%; left: 50%; width: 9px; height: 13px; border-radius: 2px; background: var(--piece); animation: ct-confetti 1.7s .42s cubic-bezier(.15,.65,.45,1) both; }
-    @keyframes ct-confetti { 0% { transform: translate(0,0) rotate(0) scale(.3); opacity: 0 } 13% { opacity: 1 } 100% { transform: translate(var(--dx),var(--dy)) rotate(var(--turn)); opacity: 0 } }
+    #ct-success-variants .v-confetti.play .confetti span { top: var(--origin-y); left: var(--origin-x); width: var(--w); height: var(--h); border: 2px solid #fff; border-radius: 2px; background: var(--piece); box-shadow: 0 2px 3px #61432155; animation: ct-confetti var(--dur) var(--delay) cubic-bezier(.16,.65,.42,1) both; }
+    #ct-success-variants .v-confetti.play .confetti span:nth-child(4n) { border-radius: 50%; }
+    @keyframes ct-confetti { 0% { transform: translate(0,0) rotate(0) scale(.25); opacity: 0 } 12% { opacity: 1 } 78% { opacity: 1 } 100% { transform: translate(var(--dx),var(--dy)) rotate(var(--turn)) scale(.9); opacity: 0 } }
     #ct-success-variants .v-halo .halo { position: absolute; z-index: 2; top: 43%; left: 50%; width: 220px; height: 220px; translate: -50% -10%; border-radius: 50%; background: repeating-conic-gradient(from 0deg,#ffc449bd 0deg 8deg,transparent 8deg 20deg); mask: radial-gradient(circle,transparent 0 24%,#000 25% 74%,transparent 75%); opacity: 0; }
     #ct-success-variants .v-halo.play .halo { animation: ct-halo 2s .2s ease-out both; }
     @keyframes ct-halo { 0% { transform: scale(.25) rotate(-30deg); opacity: 0 } 35% { opacity: .85 } 80% { opacity: .55 } 100% { transform: scale(1.35) rotate(16deg); opacity: 0 } }
     #ct-success-variants .v-petals.play .petal span { top: 16%; left: var(--x); width: var(--s); height: var(--s); background: var(--piece); border: 2px solid #fff; border-radius: 70% 20% 70% 20%; box-shadow: 0 2px 3px #725e2d44; animation: ct-petal var(--dur) var(--delay) cubic-bezier(.22,.53,.64,1) both; }
     #ct-success-variants .v-petals.play .petal span:nth-child(5n) { border-radius: 20% 70% 20% 70%; }
-    @keyframes ct-petal { 0% { transform: translate(0,-18px) rotate(-25deg) scale(.45); opacity: 0 } 8% { opacity: 1 } 50% { transform: translate(var(--mid),220px) rotate(var(--halfturn)) scale(1.05); opacity: 1 } 86% { opacity: 1 } 100% { transform: translate(var(--drift),510px) rotate(var(--turn)) scale(.82); opacity: 0 } }
+    @keyframes ct-petal { 0% { transform: translate(0,-18px) rotate(-25deg) scale(.45); opacity: 0 } 8% { opacity: 1 } 50% { transform: translate(var(--mid),290px) rotate(var(--halfturn)) scale(1.05); opacity: 1 } 100% { transform: translate(var(--drift),690px) rotate(var(--turn)) scale(.82); opacity: 1 } }
     #ct-success-variants .v-wave .ring { position: absolute; z-index: 4; top: 58%; left: 50%; width: 65px; height: 65px; translate: -50% -50%; border: 9px solid #ffc638; border-radius: 50%; opacity: 0; }
     #ct-success-variants .v-wave.play .ring { animation: ct-ring 1.35s .78s ease-out both; }
     #ct-success-variants .v-wave.play .cta { animation: ct-button 1s 1.2s cubic-bezier(.16,1.5,.3,1) both; }
@@ -47,7 +48,7 @@
   </style>
   <div class="viz-carousel" aria-label="Пять анимаций экрана успеха" data-previous-label="Предыдущий вариант" data-next-label="Следующий вариант">
     <section data-variant="Конфетти" aria-label="Вариант: взрыв бумажного конфетти">
-      <div class="demo v-confetti"><div class="phone"><div class="island"></div><img class="cloud blue" alt=""/><img class="cloud gold" alt=""/><div class="title">Nicely done!</div><div class="subtitle">LEVEL 3 COMPLETE</div><img class="warrior" alt="Всадник на коне"/><div class="fx confetti"></div><div class="cta">Next level</div></div><div class="note text-small">Бумажный хлопок вокруг всадника</div><button type="button" class="btn replay">Повторить</button></div>
+      <div class="demo v-confetti"><div class="phone"><div class="island"></div><img class="cloud blue" alt=""/><img class="cloud gold" alt=""/><div class="title">Nicely done!</div><div class="subtitle">LEVEL 3 COMPLETE</div><img class="warrior" alt="Всадник на коне"/><div class="fx confetti"></div><div class="cta">Next level</div></div><div class="note text-small">Два ярких залпа крупных бумажных конфетти</div><button type="button" class="btn replay">Повторить</button></div>
     </section>
     <section data-variant="Сияние" aria-label="Вариант: золотое сияние" hidden>
       <div class="demo v-halo"><div class="phone"><div class="island"></div><div class="halo"></div><img class="cloud blue" alt=""/><img class="cloud gold" alt=""/><div class="title">Nicely done!</div><div class="subtitle">LEVEL 3 COMPLETE</div><img class="warrior" alt="Всадник на коне"/><div class="fx"></div><div class="cta">Next level</div></div><div class="note text-small">Лучистый золотой акцент за персонажем</div><button type="button" class="btn replay">Повторить</button></div>
@@ -71,15 +72,23 @@
       root.querySelectorAll('.cloud.blue').forEach(el => el.src = blue);
       root.querySelectorAll('.cloud.gold').forEach(el => el.src = gold);
       root.querySelectorAll('.warrior').forEach(el => el.src = warrior);
-      const colors = ['#f9bd31','#ed3a2a','#1689d4','#00a680','#ffe173'];
+      const colors = ['#ffc229', '#ef3e2f', '#168bd5', '#00a87d', '#ffe36b'];
       const confetti = root.querySelector('.confetti');
-      for (let i = 0; i < 21; i++) {
+      for (let i = 0; i < 72; i++) {
         const piece = document.createElement('span');
-        const angle = (i / 21) * Math.PI * 2;
-        const distance = 95 + (i % 5) * 18;
+        const wave = Math.floor(i / 36);
+        const slot = i % 36;
+        const angle = (slot / 36) * Math.PI * 2 + wave * .14;
+        const distance = 145 + (slot % 6) * 21;
+        piece.style.setProperty('--origin-x', '50%');
+        piece.style.setProperty('--origin-y', wave ? '38%' : '46%');
+        piece.style.setProperty('--w', `${8 + (slot % 4) * 3}px`);
+        piece.style.setProperty('--h', `${12 + (slot % 5) * 3}px`);
         piece.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
-        piece.style.setProperty('--dy', `${Math.sin(angle) * distance + 46}px`);
-        piece.style.setProperty('--turn', `${(i % 2 ? 1 : -1) * (220 + i * 13)}deg`);
+        piece.style.setProperty('--dy', `${Math.sin(angle) * distance + 125}px`);
+        piece.style.setProperty('--turn', `${(slot % 2 ? 1 : -1) * (290 + slot * 19)}deg`);
+        piece.style.setProperty('--delay', `${.4 + wave * .46 + (slot % 6) * .024}s`);
+        piece.style.setProperty('--dur', `${2.1 + (slot % 5) * .12}s`);
         piece.style.setProperty('--piece', colors[i % colors.length]);
         confetti.appendChild(piece);
       }
